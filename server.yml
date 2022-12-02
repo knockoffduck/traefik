@@ -1,10 +1,24 @@
 http:
   routers:
-    backendRouter:
-      rule: "Path(`/`)"
-      service: backend
+    PBDashboardRouter:
+      rule: "Path(`/ws/_/`)"
+      service: PBDashboard
+    PBApiRouter:
+      rule: "Path(`/ws/api`)"
+      service: PBApi
+    PBRouter:
+      rule: "Path(`/ws`)"
+      service: PB
   services:
-    backend:
+    PBDashboard:
       loadBalancer:
         servers:
-          - url: "http://localhost:3000/"
+          - url: "http://localhost:8090/_/"
+    PBApi:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8090/api"
+    PB:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:8090"
