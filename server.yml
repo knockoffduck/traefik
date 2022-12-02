@@ -1,7 +1,7 @@
 http:
   routers:
     backendRouter:
-      rule: "Path(`/api`)"
+      rule: "Path(`/`)"
       service: backend
   services:
     backend:
