@@ -1,0 +1,10 @@
+http:
+  routers:
+    backendRouter:
+      rule: "Path(`/api`)"
+      service: backend
+  services:
+    backend:
+      loadBalancer:
+        servers:
+          - url: "http://localhost:3000"

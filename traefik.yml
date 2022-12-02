@@ -28,6 +28,11 @@ entryPoints:
   websecure:
     address: :443
 
+providers:
+  file:
+    filename: server.yml
+    watch: true
+
 ################################################################
 # Traefik logs configuration
 ################################################################
